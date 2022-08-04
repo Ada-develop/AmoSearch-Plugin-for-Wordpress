@@ -5,11 +5,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <title>js-tutorials.com : live json search</title>
+  
 </head>
 <body>
   <div class="container" style="padding:50px 250px;">
-    <h1>Live LOL</h1>
 	<form role="form">
         <div class="form-group">
           <input type="input" class="form-control input-lg" id="txt-search" placeholder="Type your search character">
@@ -75,7 +74,7 @@
 				  output += '<div class="col-md-3"><img class="img-responsive" src="'+val.product.title+'" alt="'+ val.product.title +'" /></div>';
 				  output += '<div class="col-md-7">';
 				  output += '<h5>' + val.product.title + '</h5>';
-				  output += '<p>' + val.price + '</p>'
+				  output += '<p>' + val.product.price + ' $</p>'
 				  output += '</div></a>';
 				  output += '</div>';
 				  if(count%2 == 0){

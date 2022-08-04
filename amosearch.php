@@ -33,16 +33,6 @@ class AmoSearch
   }
 
 
-public function custom_post_type(){
-    register_post_type('amosearch',
-    [
-      'public' => true,
-      'label' => esc_html__('AmoSearch', 'amosearch'),
-      'supports' => ['title'.'editor','thumbnail']
-]);
-}
-
-
 }
 
 
@@ -60,7 +50,6 @@ function XMLFileCreation(){
   global $wpdb;
 
  $query = $wpdb->get_results("SELECT wp_posts.ID , wp_posts.guid, wp_posts.post_title,wp_wc_product_meta_lookup.min_price, wp_posts.post_parent, wp_wc_product_meta_lookup.product_id FROM wp_posts INNER JOIN wp_wc_product_meta_lookup ON wp_posts.ID=wp_wc_product_meta_lookup.product_id  WHERE post_type LIKE 'product%'", ARRAY_A);
-
 
  //  XML Parser / Cacheing
 echo(dirname(__FILE__)."products.txt");
@@ -87,11 +76,6 @@ fclose($JSONfile);
 }}}
 
 
-function SearchBarResult(){
-  require_once(dirname(__FILE__)."/livesearch.php");
-
-}
-
 
 
 
@@ -100,3 +84,11 @@ if(class_exists(('AmoSearch'))){
   
   
   }
+
+
+function amosearch_searchbar(){
+  echo include 'livesearch.php';
+}
+
+
+add_shortcode('amosearchbar', 'amosearch_searchbar');
